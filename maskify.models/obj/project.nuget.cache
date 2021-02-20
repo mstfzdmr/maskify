@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "G9qNgFsq05+r/91rIITbbKZqyQk2Vq5eWVwTFrDVIRlFXXpeU+b/SE0EWTiAcPiQfLPrfbR2/0y96uPKfED48w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mustafa\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
