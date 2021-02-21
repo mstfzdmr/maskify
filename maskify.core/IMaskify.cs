@@ -2,6 +2,6 @@
 {
     public interface IMaskify<T>
     {
-        T Mask(T model, string keyValueJsonModel);
+        T Mask(T model, string keyValueJsonModel, string replacement);
     }
 }

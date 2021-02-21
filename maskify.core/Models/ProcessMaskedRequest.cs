@@ -8,5 +8,6 @@ namespace maskify.core.Models
         public object PropertyValue { get; set; }
         public Type PropertyType { get; set; }
         public object MaskifyPropertyValue { get; set; }
+        public string Replacement { get; set; }
     }
 }

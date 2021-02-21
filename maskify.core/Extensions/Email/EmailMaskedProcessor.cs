@@ -8,14 +8,7 @@ namespace maskify.core.Extensions.Email
     {
         public ProcessMaskedResult ProcessMask(ProcessMaskedRequest processMaskedRequest)
         {
-
-
-
-
-            return new ProcessMaskedResult
-            {
-                PropertyValue = Convert.ChangeType(processMaskedRequest.PropertyValue, processMaskedRequest.PropertyType)
-            };
+            throw new NotImplementedException();
         }
     }
 }

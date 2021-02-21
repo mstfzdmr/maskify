@@ -1,4 +1,5 @@
-﻿using maskify.core.Services;
+﻿using maskify.core.Constant;
+using maskify.core.Services;
 using maskify.models;
 using Newtonsoft.Json;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace maskify.core
             _maskedService = maskedService;
         }
 
-        public T Mask(T model, string keyValueJsonModel)
+        public T Mask(T model, string keyValueJsonModel, string replacement)
         {
             var maskifyProperty = JsonConvert.DeserializeObject<MaskifyProperty>(keyValueJsonModel);
 
@@ -28,7 +29,8 @@ namespace maskify.core
                         PropertyName = property.DisplayName,
                         PropertyValue = property.GetValue(model),
                         PropertyType = property.PropertyType,
-                        MaskifyPropertyValue = maskifyPropertyValue
+                        MaskifyPropertyValue = maskifyPropertyValue,
+                        Replacement = !string.IsNullOrEmpty(replacement) ? replacement : Replacements.DefaultReplacement
                     });
 
                     property.SetValue(model, processMaskedResult.PropertyValue);
