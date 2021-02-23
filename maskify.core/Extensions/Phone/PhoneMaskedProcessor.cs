@@ -4,9 +4,9 @@ using maskify.core.Models;
 using System;
 using System.Text.RegularExpressions;
 
-namespace maskify.core.Extensions.Email
+namespace maskify.core.Extensions.Phone
 {
-    public class EmailMaskedProcessor : IMaskedProcessor
+    public class PhoneMaskedProcessor : IMaskedProcessor
     {
         public ProcessMaskedResult ProcessMask(ProcessMaskedRequest processMaskedRequest)
         {
@@ -18,7 +18,7 @@ namespace maskify.core.Extensions.Email
                 };
             }
 
-            var newPropertyValue = Regex.Replace($"{processMaskedRequest.PropertyValue}", Patterns.EmailPattern, processMaskedRequest.Replacement);
+            var newPropertyValue = Regex.Replace($"{processMaskedRequest.PropertyValue}", Patterns.PhoneNumberPattern, processMaskedRequest.Replacement);
 
             return new ProcessMaskedResult
             {
