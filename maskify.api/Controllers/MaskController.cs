@@ -6,9 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace maskify.api.Controllers
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/mask")]
+    [Consumes("application/json")]
     public class MaskController : Controller
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -17,7 +15,10 @@ namespace maskify.api.Controllers
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public ActionResult Mask<T>(RequestModel<T> request)
+
+        [HttpPost]
+        [Route("api/mask")]
+        public IActionResult Mask<T>([FromBody] RequestModel<T> request)
         {
             using (var scope = _httpContextAccessor.HttpContext.RequestServices.CreateScope())
             {
