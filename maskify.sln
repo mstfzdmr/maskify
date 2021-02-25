@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "maskify.models", "maskify.m
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "maskify.core", "maskify.core\maskify.core.csproj", "{2EE68AD7-0096-4F01-AD00-5EDE1112CFBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskify.api", "maskify.api\maskify.api.csproj", "{26993673-D834-4756-B9FB-5BEEA75FC51E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maskify.api", "maskify.api\maskify.api.csproj", "{DAA3B4AC-125E-4621-BB8B-50BF7BFE12C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{2EE68AD7-0096-4F01-AD00-5EDE1112CFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE68AD7-0096-4F01-AD00-5EDE1112CFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE68AD7-0096-4F01-AD00-5EDE1112CFBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26993673-D834-4756-B9FB-5BEEA75FC51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26993673-D834-4756-B9FB-5BEEA75FC51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26993673-D834-4756-B9FB-5BEEA75FC51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26993673-D834-4756-B9FB-5BEEA75FC51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA3B4AC-125E-4621-BB8B-50BF7BFE12C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA3B4AC-125E-4621-BB8B-50BF7BFE12C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA3B4AC-125E-4621-BB8B-50BF7BFE12C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA3B4AC-125E-4621-BB8B-50BF7BFE12C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

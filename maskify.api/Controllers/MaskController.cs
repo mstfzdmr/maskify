@@ -1,31 +1,56 @@
-﻿using maskify.api.Models;
+﻿using maskify.api.Exceptions;
+using maskify.api.Filters;
+using maskify.api.Models;
 using maskify.core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Rest;
+using System.Net;
 
 namespace maskify.api.Controllers
 {
+    [ApiController]
     [Consumes("application/json")]
-    public class MaskController : Controller
+    [Route("api/mask")]
+    public class MaskController : ControllerBase
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        #region Fields
 
-        public MaskController(IHttpContextAccessor httpContextAccessor)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILogger<MaskController> _logger;
+        
+        #endregion
+
+        #region Ctor
+        
+        public MaskController(IHttpContextAccessor httpContextAccessor, ILogger<MaskController> logger)
         {
             _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
         }
 
+        #endregion
+
+        #region Actions
+        
         [HttpPost]
-        [Route("api/mask")]
-        public IActionResult Mask<T>([FromBody] RequestModel<T> request)
+        [TransformException(typeof(RestException), HttpStatusCode.InternalServerError, "Error on service")]
+        [TransformException(typeof(MessageExceptions), HttpStatusCode.BadRequest, "")]
+        public Response<T> Post<T>([FromBody] Request<T> request)
         {
             using (var scope = _httpContextAccessor.HttpContext.RequestServices.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<IMaskify<T>>();
-                var response = context.Mask(request.Model, request.KeyValueJsonModel, request.Replacement);
-                return Ok(response);
+                return new Response<T>
+                {
+                    Data = context.Mask(request.Model, request.KeyValueJsonModel, request.Replacement),
+                    Code = 200
+                };
             }
         }
+        
+        #endregion
     }
 }
