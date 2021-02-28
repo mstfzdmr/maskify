@@ -19,7 +19,7 @@ namespace maskify.api
             services.AddOptions();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped(typeof(IMaskify<>), typeof(Maskify<>));
+            services.AddScoped<IMaskify, Maskify>();
             services.AddScoped<IMaskedService, MaskedService>();
             services.AddScoped<IMasked, Masked>();
 

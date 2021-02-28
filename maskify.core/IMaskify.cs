@@ -1,7 +1,9 @@
-﻿namespace maskify.core
+﻿using maskify.models;
+
+namespace maskify.core
 {
-    public interface IMaskify<T>
+    public interface IMaskify
     {
-        T Mask(T model, string keyValueJsonModel, string replacement);
+        MaskifyObject Mask(object model, string keyValueJsonModel, string replacement);
     }
 }

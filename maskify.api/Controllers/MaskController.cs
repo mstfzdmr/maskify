@@ -1,10 +1,8 @@
 ﻿using maskify.api.Exceptions;
 using maskify.api.Filters;
-using maskify.api.Models;
 using maskify.core;
-using Microsoft.AspNetCore.Http;
+using maskify.models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Rest;
 using System.Net;
@@ -18,39 +16,36 @@ namespace maskify.api.Controllers
     {
         #region Fields
 
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IMaskify _maskify;
         private readonly ILogger<MaskController> _logger;
-        
+
         #endregion
 
         #region Ctor
-        
-        public MaskController(IHttpContextAccessor httpContextAccessor, ILogger<MaskController> logger)
+
+        public MaskController(IMaskify maskify, ILogger<MaskController> logger)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _maskify = maskify;
             _logger = logger;
         }
 
         #endregion
 
         #region Actions
-        
+
         [HttpPost]
         [TransformException(typeof(RestException), HttpStatusCode.InternalServerError, "Error on service")]
         [TransformException(typeof(MessageExceptions), HttpStatusCode.BadRequest, "")]
-        public Response<T> Post<T>([FromBody] Request<T> request)
+        public MaskifyResponse<object> Post([FromBody] MaskifyRequest request)
         {
-            using (var scope = _httpContextAccessor.HttpContext.RequestServices.CreateScope())
+            MaskifyObject maskifyObject = _maskify.Mask(request.Model, request.ReplacedJsonKeyValues, request.Replacement);
+            return new MaskifyResponse<object>
             {
-                var context = scope.ServiceProvider.GetRequiredService<IMaskify<T>>();
-                return new Response<T>
-                {
-                    Data = context.Mask(request.Model, request.KeyValueJsonModel, request.Replacement),
-                    Code = 200
-                };
-            }
+                Data = maskifyObject.Properties,
+                Code = 200
+            };
         }
-        
+
         #endregion
     }
 }

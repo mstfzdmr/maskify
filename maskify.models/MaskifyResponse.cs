@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Collections;
+﻿using System.Collections;
 
-namespace maskify.api.Models
+namespace maskify.models
 {
-    public class Response
+    public class MaskifyResponse
     {
         private string _message = string.Empty;
         private string _internalMessage = string.Empty;
@@ -20,15 +19,15 @@ namespace maskify.api.Models
 
             switch (code)
             {
-                case StatusCodes.Status500InternalServerError:
+                case 500:
                     return "Internal Server Error";
-                case StatusCodes.Status401Unauthorized:
+                case 401:
                     return "Unauthorized";
-                case StatusCodes.Status422UnprocessableEntity:
+                case 422:
                     return "Unprocessable Entity"; ;
-                case StatusCodes.Status400BadRequest:
+                case 400:
                     return "Bad Request"; ;
-                case StatusCodes.Status200OK:
+                case 200:
                     return "OK";
             }
 
@@ -46,15 +45,15 @@ namespace maskify.api.Models
 
             switch (code)
             {
-                case StatusCodes.Status500InternalServerError:
+                case 500:
                     return "Internal Server Error";
-                case StatusCodes.Status401Unauthorized:
+                case 401:
                     return "Unauthorized";
-                case StatusCodes.Status422UnprocessableEntity:
+                case 422:
                     return "Unprocessable Entity"; ;
-                case StatusCodes.Status400BadRequest:
+                case 400:
                     return "Bad Request"; ;
-                case StatusCodes.Status200OK:
+                case 200:
                     return "OK";
             }
 
@@ -62,7 +61,7 @@ namespace maskify.api.Models
         }
     }
 
-    public class Response<T> : Response
+    public class MaskifyResponse<T> : MaskifyResponse
     {
         public T Data { get; set; }
         private int _total;

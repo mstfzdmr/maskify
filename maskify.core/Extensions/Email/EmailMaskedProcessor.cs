@@ -1,7 +1,6 @@
 ﻿using maskify.core.Constant;
 using maskify.core.Libraries;
 using maskify.core.Models;
-using System;
 using System.Text.RegularExpressions;
 
 namespace maskify.core.Extensions.Email
@@ -10,20 +9,9 @@ namespace maskify.core.Extensions.Email
     {
         public ProcessMaskedResult ProcessMask(ProcessMaskedRequest processMaskedRequest)
         {
-            if (!processMaskedRequest.MaskifyPropertyValue.Equals(""))
-            {
-                return new ProcessMaskedResult
-                {
-                    PropertyValue = Convert.ChangeType(processMaskedRequest.MaskifyPropertyValue, processMaskedRequest.PropertyType)
-                };
-            }
-
-            var newPropertyValue = Regex.Replace($"{processMaskedRequest.PropertyValue}", Patterns.EmailPattern, processMaskedRequest.Replacement);
-
-            return new ProcessMaskedResult
-            {
-                PropertyValue = Convert.ChangeType(newPropertyValue, processMaskedRequest.PropertyType)
-            };
+            return !processMaskedRequest.MaskifyPropertyValue.Equals("")
+                ? new ProcessMaskedResult { PropertyValue = processMaskedRequest.MaskifyPropertyValue }
+                : new ProcessMaskedResult { PropertyValue = Regex.Replace($"{processMaskedRequest.PropertyValue}", Patterns.EmailPattern, processMaskedRequest.Replacement) };
         }
     }
 }

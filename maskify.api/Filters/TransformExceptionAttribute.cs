@@ -1,5 +1,5 @@
 ﻿using maskify.api.Exceptions;
-using maskify.api.Models;
+using maskify.models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -39,7 +39,7 @@ namespace maskify.api.Filters
                 return;
             }
 
-            var errorResponse = new Response
+            var errorResponse = new MaskifyResponse
             {
                 Code = Code > 0 ? Code : (int)StatusCode,
                 Message = Message,

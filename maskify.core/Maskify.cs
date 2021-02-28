@@ -2,11 +2,11 @@
 using maskify.core.Services;
 using maskify.models;
 using Newtonsoft.Json;
-using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace maskify.core
 {
-    public class Maskify<T> : IMaskify<T> where T : class
+    public class Maskify : IMaskify
     {
         private readonly IMaskedService _maskedService;
 
@@ -15,29 +15,34 @@ namespace maskify.core
             _maskedService = maskedService;
         }
 
-        public T Mask(T model, string keyValueJsonModel, string replacement)
+        public MaskifyObject Mask(object model, string keyValueJsonModel, string replacement)
         {
-            var maskifyProperty = JsonConvert.DeserializeObject<MaskifyProperty>(keyValueJsonModel);
+            MaskifyExtensionData requestModel = JsonConvert.DeserializeObject<MaskifyExtensionData>(model.ToString());
+            MaskifyExtensionData maskifyExtensionData = JsonConvert.DeserializeObject<MaskifyExtensionData>(keyValueJsonModel);
 
-            var properties = TypeDescriptor.GetProperties(typeof(T));
-            foreach (PropertyDescriptor property in properties)
+            MaskifyObject responseObjectModel = new MaskifyObject();
+
+            foreach (KeyValuePair<string, object> item in requestModel.Properties)
             {
-                if (maskifyProperty.Properties.TryGetValue(property.DisplayName, out object maskifyPropertyValue))
+                if (maskifyExtensionData.Properties.TryGetValue(item.Key, out object maskifyExtensionDataValue))
                 {
                     var processMaskedResult = _maskedService.ProcessMask(new Models.ProcessMaskedRequest
                     {
-                        PropertyName = property.DisplayName,
-                        PropertyValue = property.GetValue(model),
-                        PropertyType = property.PropertyType,
-                        MaskifyPropertyValue = maskifyPropertyValue,
+                        PropertyName = item.Key,
+                        PropertyValue = item.Value,
+                        MaskifyPropertyValue = maskifyExtensionDataValue,
                         Replacement = !string.IsNullOrEmpty(replacement) ? replacement : Replacements.DefaultReplacement
                     });
 
-                    property.SetValue(model, processMaskedResult.PropertyValue);
+                    responseObjectModel.Properties.Add(item.Key, processMaskedResult.PropertyValue);
+                }
+                else
+                {
+                    responseObjectModel.Properties.Add(item.Key, item.Value);
                 }
             }
 
-            return model;
+            return responseObjectModel;
         }
     }
 }
