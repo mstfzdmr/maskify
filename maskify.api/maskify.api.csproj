@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +21,14 @@
   <ItemGroup>
     <ProjectReference Include="..\maskify.core\maskify.core.csproj" />
     <ProjectReference Include="..\maskify.models\maskify.models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
   </ItemGroup>
 
 
