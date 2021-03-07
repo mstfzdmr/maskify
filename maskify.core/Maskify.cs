@@ -9,16 +9,48 @@ namespace maskify.core
     public class Maskify : IMaskify
     {
         private readonly IMaskedService _maskedService;
-
         public Maskify(IMaskedService maskedService)
         {
             _maskedService = maskedService;
         }
 
-        public MaskifyObject Mask(object model, string keyValueJsonModel, string replacement)
+        public MaskifyObject Mask(object model, string replacedJsonKeyValues, string replacement)
+        {
+            try
+            {
+                return ToObject(model, replacedJsonKeyValues, replacement);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<MaskifyObject> Masks(object model, string replacedJsonKeyValues, string replacement)
+        {
+            try
+            {
+                var requestModel = JsonConvert.DeserializeObject<dynamic>(model.ToString());
+
+                List<MaskifyObject> maskifyObjects = new List<MaskifyObject>();
+                foreach (var item in requestModel)
+                {
+                    var maskifyObject = ToObject(item, replacedJsonKeyValues, replacement);
+                    maskifyObjects.Add(maskifyObject);
+                }
+
+                return maskifyObjects;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        private MaskifyObject ToObject(object model, string replacedJsonKeyValues, string replacement)
         {
             MaskifyExtensionData requestModel = JsonConvert.DeserializeObject<MaskifyExtensionData>(model.ToString());
-            MaskifyExtensionData maskifyExtensionData = JsonConvert.DeserializeObject<MaskifyExtensionData>(keyValueJsonModel);
+            MaskifyExtensionData maskifyExtensionData = JsonConvert.DeserializeObject<MaskifyExtensionData>(replacedJsonKeyValues);
 
             MaskifyObject responseObjectModel = new MaskifyObject();
 
