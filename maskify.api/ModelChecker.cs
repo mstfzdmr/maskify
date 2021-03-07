@@ -8,12 +8,13 @@ namespace maskify.api
         public static bool IsArrayModel(this object models)
         {
             var dynamicModels = JsonConvert.DeserializeObject<dynamic>(models.ToString());
-            if (((JArray)dynamicModels).Type == JTokenType.Array)
+            switch ((dynamicModels).Type)
             {
-                return true;
+                case JTokenType.Array: 
+                    return true;
+                default:
+                    return false;
             }
-
-            return false;
         }
     }
 }

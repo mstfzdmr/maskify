@@ -38,7 +38,7 @@ namespace maskify.api.Filters
         {
             public ValidationResultModel(ModelStateDictionary modelState)
             {
-                Message = "Validation Failed";
+                Message = "One or more validation errors occurred.";
                 Code = StatusCodes.Status422UnprocessableEntity;
                 Errors = modelState.Keys.SelectMany(key => modelState[key].Errors.Select(x => new ValidationError(key, x.ErrorMessage))).ToList();
             }

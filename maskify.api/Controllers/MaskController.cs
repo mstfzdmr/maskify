@@ -29,7 +29,7 @@ namespace maskify.api.Controllers
         #region Actions
         [HttpPost]
         [TransformException(typeof(RestException), HttpStatusCode.InternalServerError, "Error on service")]
-        [TransformException(typeof(MessageExceptions), HttpStatusCode.BadRequest, "")]
+        [TransformException(typeof(MessageExceptions), HttpStatusCode.BadRequest, "Error on service")]
         public MaskifyResponse<object> Post([FromBody] MaskifyRequest request)
         {
             if (request.Model.IsArrayModel())
