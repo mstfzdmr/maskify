@@ -25,20 +25,18 @@ Masking sensitive data
 <p>Response body:</p>
 <pre><code>
 {
-  "data": {
-    "Id": "e49118cd-5a4a-4572-afa8-1ec7516ed2cc",
-    "IdentityNumber": "Censored",
-    "Email": "m**************@maskify.com",
-    "Name": "Mustafa",
-    "LastName": "Ozdemir",
-    "Phone": "+9055******55",
-    "BirthDate": "1986-10-19T00:00:00",
-    "Address": "I*****************"
-  },
-  "total": 0,
-  "code": 200,
-  "message": "OK",
-  "internalMessage": "OK"
+  "data": [
+    {
+      "id": "e49118cd-5a4a-4572-afa8-1ec7516ed2cc",
+      "identityNumber": "Censored",
+      "email": "m**************@maskify.com",
+      "name": "Mustafa",
+      "lastName": "Ozdemir",
+      "phone": "+9055******55",
+      "birthDate": "1986-10-19T00:00:00",
+      "address": "I*****************"
+    }
+  ]
 }
 </code></pre>
 
