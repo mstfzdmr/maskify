@@ -70,7 +70,7 @@ HttpClient _httpClient = new HttpClient
 
 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-var request = new HttpRequestMessage(HttpMethod.Post, "api/mask")
+var request = new HttpRequestMessage(HttpMethod.Post, "v1/mask")
 {
     Content = new StringContent(JsonSerializer.Serialize(requestModel), Encoding.UTF8, "application/json")
 };
