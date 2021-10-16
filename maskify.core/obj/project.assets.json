@@ -77,11 +77,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\maskify.core.csproj",
+      "projectUniqueName": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\maskify.core.csproj",
       "projectName": "maskify.core",
-      "projectPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\maskify.core.csproj",
+      "projectPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\maskify.core.csproj",
       "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -102,8 +102,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj": {
-              "projectPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj"
+            "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj": {
+              "projectPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj"
             }
           }
         }
