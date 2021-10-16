@@ -1,12 +1,9 @@
-﻿using maskify.api.Exceptions;
-using maskify.api.Filters;
-using maskify.core;
+﻿using maskify.core;
 using maskify.models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Rest;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 
 namespace maskify.api.Controllers
 {
@@ -28,8 +25,9 @@ namespace maskify.api.Controllers
 
         #region Actions
         [HttpPost]
-        [TransformException(typeof(RestException), HttpStatusCode.InternalServerError, "Error on service")]
-        [TransformException(typeof(MessageExceptions), HttpStatusCode.BadRequest, "Error on service")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<string>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ProblemDetails))]
         public MaskifyResponse<object> Post([FromBody] MaskifyRequest request)
         {
             if (request.Model.IsArrayModel())

@@ -1,35 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\maskify.core.csproj": {}
+    "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\maskify.core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\maskify.core.csproj": {
+    "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\maskify.core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\maskify.core.csproj",
+        "projectUniqueName": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\maskify.core.csproj",
         "projectName": "maskify.core",
-        "projectPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\maskify.core.csproj",
+        "projectPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\maskify.core.csproj",
         "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.core\\obj\\",
+        "outputPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj": {
-                "projectPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj"
+              "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj": {
+                "projectPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj"
               }
             }
           }
@@ -41,8 +45,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
@@ -64,33 +68,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj": {
+    "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj",
+        "projectUniqueName": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj",
         "projectName": "maskify.models",
-        "projectPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\maskify.models.csproj",
+        "projectPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\maskify.models.csproj",
         "packagesPath": "C:\\Users\\Mustafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mustafa\\source\\repos\\maskify\\maskify.models\\obj\\",
+        "outputPath": "C:\\Users\\Mustafa\\Source\\Repos\\maskify\\maskify.models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -101,8 +109,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
@@ -124,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
