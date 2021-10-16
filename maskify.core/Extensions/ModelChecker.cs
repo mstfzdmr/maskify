@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace maskify.api
+namespace maskify.core
 {
     public static class ModelChecker
     {

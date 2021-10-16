@@ -5,7 +5,6 @@ namespace maskify.core
 {
     public interface IMaskify
     {
-        MaskifyObject Mask(object model, string replacedJsonKeyValues, string replacement);
-        List<MaskifyObject> Masks(object model, string replacedJsonKeyValues, string replacement);
+        List<MaskifyObject> Mask(object model, string replacedJsonKeyValues, string replacement);
     }
 }

@@ -8,6 +8,8 @@ namespace maskify.models
         {
             Properties = new Dictionary<string, object>();
         }
+
+
         public Dictionary<string, object> Properties { get; set; }
     }
 }

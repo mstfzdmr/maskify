@@ -14,20 +14,23 @@ namespace maskify.core
             _maskedService = maskedService;
         }
 
-        public MaskifyObject Mask(object model, string replacedJsonKeyValues, string replacement)
+        public List<MaskifyObject> Mask(object model, string replacedJsonKeyValues, string replacement)
         {
-            return ToObject(model, replacedJsonKeyValues, replacement);
-        }
+            List<MaskifyObject> maskifyObjects = new();
 
-        public List<MaskifyObject> Masks(object model, string replacedJsonKeyValues, string replacement)
-        {
-            var requestModel = JsonConvert.DeserializeObject<dynamic>(model.ToString());
-
-            List<MaskifyObject> maskifyObjects = new List<MaskifyObject>();
-            foreach (var item in requestModel)
+            if (!model.IsArrayModel())
             {
-                var maskifyObject = ToObject(item, replacedJsonKeyValues, replacement);
+                MaskifyObject maskifyObject = ToObject(model, replacedJsonKeyValues, replacement);
                 maskifyObjects.Add(maskifyObject);
+            }
+            else
+            {
+                dynamic requestModel = JsonConvert.DeserializeObject<dynamic>(model.ToString());
+                foreach (var item in requestModel)
+                {
+                    MaskifyObject maskifyObject = ToObject(item, replacedJsonKeyValues, replacement);
+                    maskifyObjects.Add(maskifyObject);
+                }
             }
 
             return maskifyObjects;

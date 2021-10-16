@@ -29,22 +29,11 @@ namespace maskify.api.V1.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ProblemDetails))]
         public async Task<IActionResult> Post([FromBody] MaskifyRequestModel request)
         {
-            if (request.Model.IsArrayModel())
+            List<MaskifyObject> maskifyObject = _maskify.Mask(request.Model, request.ReplacedJsonKeyValues, request.Replacement);
+            return Ok(new MaskifyResponseModel<object>
             {
-                List<MaskifyObject> maskifyObject = _maskify.Masks(request.Model, request.ReplacedJsonKeyValues, request.Replacement);
-                return Ok(new MaskifyResponseModel<object>
-                {
-                    Data = maskifyObject.Select(o => o.Properties)
-                });
-            }
-            else
-            {
-                MaskifyObject maskifyObject = _maskify.Mask(request.Model, request.ReplacedJsonKeyValues, request.Replacement);
-                return Ok(new MaskifyResponseModel<object>
-                {
-                    Data = maskifyObject.Properties
-                });
-            }
+                Data = maskifyObject.Select(o => o.Properties)
+            });
         }
     }
 }
